@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vivrtih Journal Brochure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+        /* RESET & BASE STYLES */
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #333;
+            background: #e0e0e0; /* Grey background for screen only */
+        }
+
+        /* PRINT SETTINGS */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        /* BROCHURE LAYOUT */
+        .page {
+            width: 297mm;
+            height: 210mm;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* 3 Equal Columns */
+            overflow: hidden;
+            margin: 0 auto 20px auto; /* Margin for screen viewing */
+            page-break-after: always;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Shadow for screen viewing */
+        }
+
+        .panel {
+            padding: 20mm 15mm;
+            position: relative;
+            border-right: 1px dashed #ddd; /* Fold guide */
+        }
+        .panel:last-child { border-right: none; }
+
+        /* COLORS & THEME */
+        :root {
+            --primary: #2C5F2D; /* Dark Green - Nutrition/Health */
+            --secondary: #004E89; /* Deep Blue - Clinical/Science */
+            --accent: #97BC62; /* Light Green - Freshness */
+            --light-bg: #F3F8F4;
+        }
+
+        h1, h2, h3 { font-family: 'Merriweather', serif; color: var(--primary); margin-bottom: 12px; }
+        h1 { font-size: 24pt; line-height: 1.1; color: white; }
+        h2 { font-size: 14pt; border-bottom: 2px solid var(--accent); padding-bottom: 5px; }
+        h3 { font-size: 11pt; color: var(--secondary); font-weight: 700; margin-top: 15px; margin-bottom: 5px; }
+        p, li { font-size: 9.5pt; margin-bottom: 10px; text-align: justify; }
+        ul { padding-left: 18px; }
+        li { margin-bottom: 6px; }
+
+        /* SPECIAL CLASSES */
+        .cover-panel {
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .cover-panel h1, .cover-panel h2, .cover-panel p { color: white; text-align: center; border: none; }
+        
+        .back-panel { background-color: var(--light-bg); }
+        
+        .cta-box {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cta-box p { color: white; text-align: center; margin: 0; }
+        .cta-box a { color: var(--accent); font-weight: bold; text-decoration: none; }
+
+        .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: white;
+            margin: 20px auto;
+            border: 4px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 9pt; }
+        th { text-align: left; color: var(--secondary); border-bottom: 1px solid #ccc; padding: 5px 0; }
+        td { padding: 5px 0; border-bottom: 1px solid #eee; }
+
+        /* HIDE SCREEN ELEMENTS WHEN PRINTING */
+        @media print {
+            body { background: white; }
+            .page { margin: 0; box-shadow: none; }
+            .panel { border-right: none; } /* Remove fold guides on final print */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: OUTSIDE (Inner Flap | Back Cover | Front Cover) -->
+    <div class="page">
+        <!-- PANEL 1: INSIDE FLAP (Fold In) -->
+        <div class="panel back-panel">
+            <h2>Benefits for Authors</h2>
+            <p>Why publish your research with Vivrtih?</p>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Benefit</th>
+                </tr>
+                <tr>
+                    <td><strong>Open Access</strong></td>
+                    <td>Global visibility & unrestricted access.</td>
+                </tr>
+                <tr>
+                    <td><strong>Peer Review</strong></td>
+                    <td>Rigorous, fair, and constructive process.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rapid Pub</strong></td>
+                    <td>Immediate online publication upon acceptance.</td>
+                </tr>
+                <tr>
+                    <td><strong>Global Reach</strong></td>
+                    <td>Promoting international collaboration.</td>
+                </tr>
+            </table>
+            
+            <h3>Call for Papers</h3>
+            <p>We invite submissions for our <strong>Inaugural Issue</strong>.</p>
+            <ul>
+                <li>Original Research</li>
+                <li>Systematic Reviews</li>
+                <li>Short Communications</li>
+                <li>Case Reports</li>
+            </ul>
+        </div>
+
+        <!-- PANEL 2: BACK COVER (Contact) -->
+        <div class="panel">
+            <h2>Contact Us</h2>
+            <p><strong>General Inquiries:</strong><br>
+            <a href="mailto:queries@vivrtihjournal.com" style="color:var(--secondary)">queries@vivrtihjournal.com</a></p>
+
+            <p><strong>Submissions:</strong><br>
+            <a href="mailto:submission@vivrtihjournal.com" style="color:var(--secondary)">submission@vivrtihjournal.com</a></p>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <h3>Learn More & Submit</h3>
+                <div class="qr-placeholder">
+                    SCAN QR CODE<br>(Your Link Here)
+                </div>
+                <p><strong>www.vivrtihjournal.com</strong></p>
+            </div>
+            
+            <p style="position: absolute; bottom: 20mm; font-size: 8pt; color: #777;">
+                © 2025 Vivrtih Journal of Food Science and Clinical Nutrition.<br>All rights reserved.
+            </p>
+        </div>
+
+        <!-- PANEL 3: FRONT COVER -->
+        <div class="panel cover-panel">
+            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 9pt; margin-bottom: 20px;">International • Open-Access</p>
+            <h1>VIVRTIH</h1>
+            <p style="font-size: 14pt; margin-top: 10px; color: var(--accent);">Journal of Food Science<br>& Clinical Nutrition</p>
+            
+            <div style="width: 50px; height: 4px; background: white; margin: 30px 0;"></div>
+            
+            <p style="font-style: italic;">"Advancing Scientific Discoveries into Practical Solutions"</p>
+            
+            <div style="margin-top: auto; font-weight: bold; color: var(--accent);">
+                ISSN: In Progress
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INSIDE (Left | Center | Right) -->
+    <div class="page">
+        <!-- PANEL 4: INSIDE LEFT -->
+        <div class="panel">
+            <h2>About the Journal</h2>
+            <p><strong>Vivrtih Journal of Food Science and Clinical Nutrition</strong> is an independent, researcher-led international journal.</p>
+            <p>Our mission is to bridge the gap between fundamental research and real-world applications by translating scientific discoveries into practical solutions for health, nutrition, and technology challenges.</p>
+            
+            <h3>Commitment to Quality</h3>
+            <p>We adhere to the <strong>UGC Suggestive Parameters</strong> for peer-reviewed journals. Operating without commercial affiliation ensures our transparency and editorial integrity.</p>
+        </div>
+
+        <!-- PANEL 5: INSIDE CENTER -->
+        <div class="panel">
+            <h2>Scope & Focus Areas</h2>
+            <p>We welcome high-quality work across the spectrum of food science and nutrition.</p>
+            
+            <h3>Food Science</h3>
+            <p>Chemistry, Sensory Analysis, Quality Control, Engineering, and Processing.</p>
+
+            <h3>Clinical Nutrition</h3>
+            <p>Therapeutic Dietetics, Interventions, Personalized Nutrition, and Disease Management.</p>
+
+            <h3>Nutrition & Health</h3>
+            <p>Epidemiology, Public Health Nutrition, and Dietary Assessments.</p>
+        </div>
+
+        <!-- PANEL 6: INSIDE RIGHT -->
+        <div class="panel">
+            <h2>Journal Standards</h2>
+            
+            <h3>Publication Model</h3>
+            <p>We utilize a <strong>Continuous Publication Model</strong>. Articles are published online immediately after acceptance to ensure your research reaches the community faster.</p>
+
+            <h3>Inclusivity</h3>
+            <p>We actively encourage submissions from students, early-career researchers, and young professionals alongside established scholars.</p>
+            
+            <div class="cta-box">
+                <p><strong>Ready to Publish?</strong></p>
+                <p style="font-size: 9pt; margin-top: 5px;">Visit our website for full author guidelines.</p>
+                <br>
+                <a href="https://vivrtihjournal.com">vivrtihjournal.com</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
