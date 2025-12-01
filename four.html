@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vivrtih Journal - 1 Page Flyer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+        /* RESET & BASE */
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 8.5pt; /* Slightly smaller to fit 1 page */
+            line-height: 1.35;
+            color: #333;
+            background: #e0e0e0; /* Grey background for screen only */
+        }
+
+        /* PAGE SETUP FOR A4 LANDSCAPE */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        .sheet {
+            width: 297mm;
+            height: 210mm;
+            background: white;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* 3 Equal Panels */
+            column-gap: 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        /* PANELS */
+        .panel {
+            padding: 12mm 10mm;
+            position: relative;
+            border-right: 1px dashed #eee;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel:last-child { border-right: none; }
+
+        /* COLORS */
+        :root {
+            --primary: #2C5F2D;   /* Dark Green */
+            --secondary: #004E89; /* Deep Blue */
+            --accent: #97BC62;    /* Light Green */
+            --light-bg: #F3F8F4;
+        }
+
+        /* TYPOGRAPHY */
+        h1 { font-family: 'Merriweather', serif; font-size: 24pt; color: var(--primary); line-height: 1; margin-bottom: 5px; }
+        h2 { font-family: 'Merriweather', serif; font-size: 12pt; color: var(--secondary); border-bottom: 2px solid var(--accent); padding-bottom: 3px; margin-bottom: 8px; margin-top: 15px; }
+        h2:first-of-type { margin-top: 0; }
+        h3 { font-size: 9.5pt; color: var(--primary); font-weight: 700; margin-top: 10px; margin-bottom: 3px; }
+        p { margin-bottom: 8px; text-align: justify; }
+        ul { padding-left: 15px; margin-bottom: 8px; }
+        li { margin-bottom: 3px; }
+
+        /* HEADER SECTION IN PANEL 1 */
+        .header-section {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* BENEFITS TABLE */
+        .benefits-table { width: 100%; border-collapse: collapse; font-size: 8pt; margin-top: 5px; }
+        .benefits-table td { padding: 4px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .benefits-table tr:last-child td { border-bottom: none; }
+        .benefits-table strong { color: var(--secondary); display: block; margin-bottom: 2px; }
+
+        /* CONTACT/ACTION STYLES */
+        .cta-box {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+        .cta-box a { color: white; font-weight: bold; text-decoration: none; display: block; margin-top: 5px; }
+        
+        .qr-placeholder {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border: 2px solid var(--accent);
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #aaa;
+            font-size: 8pt;
+        }
+
+        .email-link { color: var(--secondary); text-decoration: none; font-weight: 600; font-size: 8.5pt; }
+
+        /* PRINT HIDING */
+        @media print {
+            body { background: white; }
+            .sheet { margin: 0; box-shadow: none; }
+            .panel { border-right: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SINGLE SHEET: 3 PANELS -->
+    <div class="sheet">
+        
+        <!-- PANEL 1: INTRODUCTION -->
+        <div class="panel">
+            <div class="header-section">
+                <h1>VIVRTIH</h1>
+                <p style="font-size: 11pt; color: var(--secondary); font-weight: bold; margin-bottom: 5px; text-align: left;">Journal of Food Science<br>& Clinical Nutrition</p>
+                <div style="width: 30px; height: 3px; background: var(--accent); margin: 8px 0;"></div>
+                <p style="font-size: 8pt; font-style: italic; margin-bottom: 0;">"Advancing Scientific Discoveries into Practical Solutions"</p>
+            </div>
+
+            <h2>About the Journal</h2>
+            <p><strong>Vivrtih Journal of Food Science and Clinical Nutrition</strong> is an independent, researcher-led international journal. We operate without institutional or commercial affiliation to ensure complete transparency and editorial integrity.</p>
+            
+            <h2>Our Mission</h2>
+            <p>To bridge the gap between fundamental research and real-world applications. We translate scientific discoveries into practical solutions for health, nutrition, and technology challenges.</p>
+
+            <h3>Inclusivity</h3>
+            <p>We actively encourage submissions from students, early-career researchers, and young professionals alongside established scholars.</p>
+        </div>
+
+        <!-- PANEL 2: DETAILS -->
+        <div class="panel">
+            <h2>Scope & Focus Areas</h2>
+            <p>We welcome high-quality original research and reviews across the spectrum of food science:</p>
+            
+            <ul style="font-size: 8pt;">
+                <li><strong>Food Science:</strong> Chemistry, Sensory Analysis, Quality Control, Engineering.</li>
+                <li><strong>Clinical Nutrition:</strong> Therapeutic Dietetics, Interventions, Disease Management.</li>
+                <li><strong>Nutrition & Health:</strong> Epidemiology, Public Health, Dietary Assessments.</li>
+                <li><strong>Food Technology:</strong> Safety, Preservation, Packaging, Novel Systems.</li>
+            </ul>
+
+            <h2>Why Publish With Us?</h2>
+            <table class="benefits-table">
+                <tr>
+                    <td><strong>Open Access</strong><br>Global visibility without paywalls.</td>
+                </tr>
+                <tr>
+                    <td><strong>Peer Review</strong><br>Rigorous & constructive evaluation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rapid Publication</strong><br>Immediate online publishing upon acceptance.</td>
+                </tr>
+                <tr>
+                    <td><strong>Standards</strong><br>Adhering to UGC Suggestive Parameters.</td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 15px; font-size: 8pt; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+                <strong>ISSN:</strong> In Progress<br>
+                <strong>Frequency:</strong> 2 Issues/Year (Continuous)
+            </div>
+        </div>
+
+        <!-- PANEL 3: ACTION & CONTACT -->
+        <div class="panel">
+            <h2>Call for Papers</h2>
+            <p>We are currently accepting submissions for our <strong>Inaugural Issue</strong>.</p>
+            <ul>
+                <li>Original Research Articles</li>
+                <li>Systematic & Narrative Reviews</li>
+                <li>Short Communications</li>
+                <li>Case Reports</li>
+                <li>Null Findings</li>
+            </ul>
+
+            <div class="cta-box">
+                <p style="margin:0; text-align: center;"><strong>Scan to Visit & Submit</strong></p>
+                <div class="qr-placeholder">
+                    [ QR CODE ]
+                </div>
+                <a href="https://vivrtihjournal.com">www.vivrtihjournal.com</a>
+            </div>
+
+            <h2>Contact Us</h2>
+            <p style="margin-bottom: 5px;"><strong>General Inquiries:</strong><br>
+            <a href="mailto:queries@vivrtihjournal.com" class="email-link">queries@vivrtihjournal.com</a></p>
+
+            <p><strong>Submissions:</strong><br>
+            <a href="mailto:submission@vivrtihjournal.com" class="email-link">submission@vivrtihjournal.com</a></p>
+
+            <p style="margin-top: auto; font-size: 7.5pt; color: #888; text-align: center;">
+                © 2025 Vivrtih Journal of Food Science and Clinical Nutrition.<br>All rights reserved.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
