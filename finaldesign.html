@@ -89,7 +89,7 @@
         }
 
         p { 
-            margin-bottom: 5px; /* Reduced paragraph spacing */
+            margin-bottom: 5px; 
             text-align: justify;
             hyphens: auto; 
         }
@@ -154,6 +154,15 @@
 
         .footer-container {
             margin-top: auto; 
+        }
+
+        /* SPECIAL SPACING FOR PANEL 1 (Introduction) */
+        .sheet > .panel:first-child p {
+            margin-bottom: 10px; /* Increased sentence/paragraph spacing */
+            line-height: 1.45;   /* Increased line spacing for readability */
+        }
+        .sheet > .panel:first-child h3 {
+            margin-top: 15px;    /* More breathing room above headings */
         }
 
         /* PRINT SETTINGS */
