@@ -16,10 +16,13 @@
     background: #e9ecef;
     -webkit-font-smoothing: antialiased;
     padding: 10px 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* A4 landscape print */
+  /* A4 landscape print (primary instruction) */
   @page { size: A4 landscape; margin: 0; }
+
   .container {
     width: 297mm;
     height: 210mm;
@@ -116,7 +119,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    image-rendering: crisp-edges; /* hint for better rendering */
+    image-rendering: crisp-edges;
     image-rendering: -webkit-optimize-contrast;
     border-radius:6px;
   }
@@ -131,47 +134,30 @@
     .panel { min-height: auto; }
   }
 
-  /* print adjustments */
+  /* ---------- PRINT STABILITY PATCH ---------- */
+  @media print {
+    /* force background printing and exact colors */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    /* keep consistent layout on print */
+    .container { grid-auto-rows: 1fr !important; align-items: stretch !important; padding: 6mm !important; }
+    .panel { min-height: 0 !important; overflow: visible !important; page-break-inside: avoid !important; break-inside: avoid !important; padding-bottom: 6mm !important; }
+
+    /* safe footer margin so last line isn't clipped */
+    .footer-note { margin-bottom: 6mm !important; }
+
+    /* If a browser force-rotates to portrait, this won't fix that — see print checklist below */
+  }
+
+  /* print adjustments (non-media block for some engines) */
   @media print {
     body { background: white; }
-    .container { box-shadow: none; margin: 0; padding: 6mm; }
+    .container { box-shadow: none; margin: 0; }
     .panel { box-shadow: none; border-left-width: 2px; }
     .cta { page-break-inside: avoid; }
   }
+
 </style>
-  /* ---------- PRINT STABILITY PATCH (paste near top of your CSS) ---------- */
-
-/* Strong landscape instruction for browsers that honor @page */
-@page { size: A4 landscape; margin: 0; }
-
-/* Ensure the HTML/body match the page size for browsers that use viewport sizing */
-html, body {
-  width: 297mm;
-  height: 210mm;
-  margin: 0;
-  padding: 0;
-}
-
-/* Force print backgrounds and exact color rendering */
-@media print {
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-
-  /* prevent panels from splitting awkwardly and avoid clipped bottoms */
-  .container { grid-auto-rows: 1fr !important; align-items: stretch !important; padding: 6mm !important; }
-  .panel     { min-height: 0 !important; overflow: visible !important; page-break-inside: avoid !important; break-inside: avoid !important; padding-bottom: 6mm !important; }
-
-  /* Make footer safer by reserving a small bottom safe margin */
-  .footer-note { margin-bottom: 6mm !important; }
-
-  /* If a browser insists on portrait, scale slightly so nothing is clipped */
-  /* (This only applies during print; leaves screen unchanged) */
-  @page { size: A4 landscape; }
-}
-
-/* Small on-screen fallback to avoid layout jump when print styles are applied */
-@media screen {
-  .panel { min-height: 0; }
-}
 </head>
 <body>
 
@@ -240,7 +226,7 @@ html, body {
         <div class="qr-box" title="Scan to visit vivrtihjournal.com">
           <!-- high-res PNG QR (large size) scaled down in CSS for crispness -->
           <img alt="QR code to visit vivrtihjournal.com"
-               src="https://api.qrserver.com/v1/create-qr-code/?size=800x800&format=png&margin=0&data=https://vivrtihjournal.com">
+               src="https://api.qrserver.com/v1/create-qr-code/?size=1200x1200&format=png&margin=0&data=https://vivrtihjournal.com">
         </div>
 
         <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
