@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vivrtih Journal - Information Flyer (3 Panels)</title>
+<title>Vivrtih Journal - Information Flyer (3 Panels) - Adjusted</title>
 <style>
   /* RESET */
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { height: 100%; }
   body {
     font-family: "Times New Roman", Times, serif;
-    font-size: 11.25pt;
-    line-height: 1.35;
+    font-size: 11.25pt;     /* kept as provided */
+    line-height: 1.35;      /* kept as provided */
     color: #263243;
     background: #e9ecef;
     -webkit-font-smoothing: antialiased;
@@ -21,7 +21,8 @@
   /* A4 landscape print */
   @page { size: A4 landscape; margin: 0; }
   .container {
-    width: 297mm; height: 210mm;
+    width: 297mm;
+    height: 210mm;
     margin: 8px auto;
     padding: 8mm;
     display: grid;
@@ -30,8 +31,7 @@
     background: linear-gradient(180deg,#ffffff,#fbfdff 60%);
     box-shadow: 0 6px 18px rgba(12,20,30,0.18);
     overflow: hidden;
-
-    /* ADDED: ensure rows share the available height so panels cannot overflow the sheet */
+    /* ensure rows share height evenly so panels can't overflow the sheet */
     grid-auto-rows: 1fr;
     align-items: stretch;
   }
@@ -48,7 +48,7 @@
     --panel-radius: 8px;
   }
 
-  /* Ensure equal-height columns that fill the sheet */
+  /* Panel: use min-height:0 to allow flex children to shrink inside grid row */
   .panel {
     background: linear-gradient(180deg,#ffffff,#fcfdff);
     border-radius: var(--panel-radius);
@@ -57,15 +57,12 @@
     flex-direction: column;
     gap: 8px;
     box-shadow: 0 6px 14px rgba(20,36,60,0.06);
-
-    /* REDUCED thickness of left accent from 6px -> 2px (exactly as requested) */
-    border-left: 2px solid transparent;
-
-    /* CRITICAL: allow the panel to shrink within the grid row so content won't overflow */
-    min-height: 0;
-    overflow: hidden;
+    border-left: 2px solid transparent; /* thinner accent */
+    min-height: 0; /* CRITICAL: lets content wrap and prevents overflow in CSS grid */
+    overflow: hidden; /* hides tiny visual overflow; content will reflow instead */
   }
 
+  /* Thin left color accent (reduced thickness) */
   .panel:nth-child(1) { border-left-color: var(--blue); }
   .panel:nth-child(2) { border-left-color: var(--gold); }
   .panel:nth-child(3) { border-left-color: var(--navy); }
@@ -118,6 +115,7 @@
     background:white; padding:8px; border-radius:8px; box-shadow: 0 10px 30px rgba(12,20,30,0.12);
     border: 2px solid rgba(0,0,0,0.03); display:flex; align-items:center; justify-content:center;
     width:120px; height:120px;
+    flex: 0 0 120px;
   }
   .qr-box img { width:100%; height:100%; object-fit:contain; border-radius:6px; display:block; }
   .cta-btn {
@@ -138,7 +136,7 @@
   @media print {
     body { background: white; }
     .container { box-shadow: none; margin: 0; padding: 6mm; }
-    .panel { box-shadow: none; border-left-width: 2px; }
+    .panel { box-shadow: none; /* keep thin accent in print */ }
     .cta { page-break-inside: avoid; }
   }
 </style>
