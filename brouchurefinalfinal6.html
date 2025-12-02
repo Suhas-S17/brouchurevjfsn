@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vivrtih Journal - Information Flyer (3 Panels) - Final Fit & Crisp QR</title>
+<title>Vivrtih Journal - Information Flyer (Print-stable Final)</title>
 <style>
   /* RESET */
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -20,16 +20,17 @@
     print-color-adjust: exact;
   }
 
-  /* A4 landscape print (primary instruction) */
+  /* Primary print instruction */
   @page { size: A4 landscape; margin: 0; }
 
   .container {
     width: 297mm;
-    height: 210mm;
+    /* NOTE: height removed to avoid print engines forcing odd layouts */
     margin: 8px auto;
     padding: 6mm;                 /* kept compact */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* Use percentage columns for print-stability */
+    grid-template-columns: 33.33% 33.33% 33.33%;
     gap: 8px;
     background: linear-gradient(180deg,#ffffff,#fbfdff 60%);
     box-shadow: 0 6px 18px rgba(12,20,30,0.18);
@@ -56,7 +57,7 @@
   .panel {
     background: linear-gradient(180deg,#ffffff,#fcfdff);
     border-radius: var(--panel-radius);
-    padding: 8mm;                 /* reduced further to guarantee fit */
+    padding: 8mm;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -65,7 +66,8 @@
     /* thin accent */
     border-left: 2px solid transparent;
 
-    /* critical: allow shrink inside grid row */
+    /* Allow panels to shrink inside grid row and behave well for print */
+    flex: 1 1 auto;
     min-height: 0;
     overflow: hidden;
   }
@@ -75,7 +77,7 @@
 
   /* Header / Brand */
   .brand { display:flex; flex-direction:column; gap:2px; }
-  .title { font-size: 19.5pt; color: var(--blue); font-weight:700; line-height:1.02; } /* tiny reduction */
+  .title { font-size: 19.5pt; color: var(--blue); font-weight:700; line-height:1.02; }
   .tagline {
     font-size: 9pt; color: var(--deep-blue);
     text-transform: uppercase; letter-spacing: .6px; font-weight:700;
@@ -83,12 +85,11 @@
 
   .heading-band { height: 6px; border-radius: 6px; background: linear-gradient(90deg,var(--blue),var(--navy)); margin: 4px 0 8px 0; }
 
-  /* Headings — tightened margins */
+  /* Headings / text */
   h2 { font-size: 13.5pt; color: var(--navy); margin-top:4px; margin-bottom:4px; }
   h2.underline { padding-bottom:3px; border-bottom: 3px solid var(--gold); display:inline-block; }
   h3 { font-size: 11pt; color: var(--blue); margin-top:6px; margin-bottom:3px; font-weight:700; }
 
-  /* Text spacing tightened */
   p { color: #2f3942; margin-bottom:3px; text-align: justify; }
   ul { margin-left:14px; margin-bottom:4px; }
   li { margin-bottom:3px; }
@@ -99,7 +100,7 @@
   .benefit-row b { width:115px; color:var(--navy); font-size:11pt; }
   .benefit-row span { color:var(--muted); font-size:10.5pt; }
 
-  /* Highlight / Contact — compact */
+  /* Highlight / Contact */
   .highlight { background: linear-gradient(180deg,#ffffff,var(--light-cream)); border-radius:8px; padding:8px; border:1px solid #e9e1d7; box-shadow: 0 6px 16px rgba(0,0,0,0.04); margin-top:6px; }
   .contact-line { font-size: 10.25pt; margin-bottom:4px; }
   .contact-line a { color:var(--blue); font-weight:700; text-decoration:none; }
@@ -114,7 +115,6 @@
     display:flex; align-items:center; justify-content:center;
   }
 
-  /* Use a high-resolution png from QR server and scale down for crispness */
   .qr-box img {
     width: 100%;
     height: 100%;
@@ -125,7 +125,6 @@
   }
 
   .cta-btn { display:inline-block; padding:8px 14px; font-weight:700; border-radius:8px; background: linear-gradient(90deg,var(--blue),var(--navy)); color:#fff; box-shadow:0 8px 18px rgba(0,0,0,0.12); }
-
   .footer-note { text-align:center; font-size:10pt; color:#66737f; margin-top:4px; }
 
   /* small-screen fallback */
@@ -134,29 +133,23 @@
     .panel { min-height: auto; }
   }
 
-  /* ---------- PRINT STABILITY PATCH ---------- */
+  /* PRINT STABILITY PATCH */
   @media print {
     /* force background printing and exact colors */
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
     /* keep consistent layout on print */
     .container { grid-auto-rows: 1fr !important; align-items: stretch !important; padding: 6mm !important; }
-    .panel { min-height: 0 !important; overflow: visible !important; page-break-inside: avoid !important; break-inside: avoid !important; padding-bottom: 6mm !important; }
+    .panel { flex: 1 1 auto !important; min-height: 0 !important; overflow: visible !important; page-break-inside: avoid !important; break-inside: avoid !important; padding-bottom: 6mm !important; }
 
     /* safe footer margin so last line isn't clipped */
     .footer-note { margin-bottom: 6mm !important; }
 
-    /* If a browser force-rotates to portrait, this won't fix that — see print checklist below */
-  }
-
-  /* print adjustments (non-media block for some engines) */
-  @media print {
     body { background: white; }
     .container { box-shadow: none; margin: 0; }
     .panel { box-shadow: none; border-left-width: 2px; }
     .cta { page-break-inside: avoid; }
   }
-
 </style>
 </head>
 <body>
