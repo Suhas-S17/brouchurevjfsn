@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Vivrtih Journal - Information Flyer (3 Panels)</title>
 <style>
   /* RESET */
@@ -30,6 +30,10 @@
     background: linear-gradient(180deg,#ffffff,#fbfdff 60%);
     box-shadow: 0 6px 18px rgba(12,20,30,0.18);
     overflow: hidden;
+
+    /* ADDED: ensure rows share the available height so panels cannot overflow the sheet */
+    grid-auto-rows: 1fr;
+    align-items: stretch;
   }
 
   /* color tokens */
@@ -53,8 +57,13 @@
     flex-direction: column;
     gap: 8px;
     box-shadow: 0 6px 14px rgba(20,36,60,0.06);
-    border-left: 6px solid transparent;
-    min-height: calc(210mm - 16mm - 4px); /* fill most of the sheet height */
+
+    /* REDUCED thickness of left accent from 6px -> 2px (exactly as requested) */
+    border-left: 2px solid transparent;
+
+    /* CRITICAL: allow the panel to shrink within the grid row so content won't overflow */
+    min-height: 0;
+    overflow: hidden;
   }
 
   .panel:nth-child(1) { border-left-color: var(--blue); }
@@ -129,7 +138,7 @@
   @media print {
     body { background: white; }
     .container { box-shadow: none; margin: 0; padding: 6mm; }
-    .panel { box-shadow: none; border-left-width: 6px; }
+    .panel { box-shadow: none; border-left-width: 2px; }
     .cta { page-break-inside: avoid; }
   }
 </style>
