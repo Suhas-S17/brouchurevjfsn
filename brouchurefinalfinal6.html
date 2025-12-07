@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vivrtih Journal - Information Flyer (Print-stable Final)</title>
+<title>Vivrtih Journal – Call for Papers Flyer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
   /* RESET */
   * {
@@ -18,380 +18,471 @@
 
   body {
     font-family: "Times New Roman", Times, serif;
-    font-size: 11.25pt;
-    line-height: 1.32;
-    color: #263243;
-    background: #e9ecef;
+    font-size: 11pt;
+    line-height: 1.4;
+    background: #e5e7eb;
+    color: #1f2933;
     -webkit-font-smoothing: antialiased;
-    padding: 10px 0;
+    padding: 12px 0;
   }
 
-  /* Primary print instruction */
+  :root {
+    --navy-bg: #102337;
+    --navy-mid: #163659;
+    --navy: #003366;
+    --blue: #0056b3;   /* title colour from your code */
+    --gold: #cfae70;
+    --muted: #6b7280;
+  }
+
   @page {
-    size: A4 landscape;
+    size: A4 portrait;
     margin: 0;
   }
 
-  /* color tokens */
-  :root {
-    --navy: #003366;
-    --blue: #0056b3;
-    --deep-blue: #002b55;
-    --gold: #cfae70;
-    --light-cream: #fbf7ef;
-    --lightest: #f4f8fb;
-    --muted: #697782;
-    --panel-radius: 8px;
-  }
-
-  .container {
-    width: 297mm;
-    margin: 8px auto;
-    padding: 6mm;
-    display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    gap: 8px;
-    background: linear-gradient(180deg,#ffffff,#fbfdff 60%);
-    box-shadow: 0 6px 18px rgba(12,20,30,0.18);
-    overflow: hidden;
-
-    /* ensures panels share height and cannot overflow the sheet */
-    grid-auto-rows: 1fr;
-    align-items: stretch;
-  }
-
-  /* PANEL */
-  .panel {
-    background: linear-gradient(180deg,#ffffff,#fcfdff);
-    border-radius: var(--panel-radius);
-    padding: 8mm;
+  .flyer {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fdf9f0;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.2);
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    box-shadow: 0 6px 14px rgba(20,36,60,0.06);
-
-    /* thin accent */
-    border-left: 2px solid transparent;
-
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: hidden;
   }
 
-  .panel:nth-child(1) { border-left-color: var(--blue); }
-  .panel:nth-child(2) { border-left-color: var(--gold); }
-  .panel:nth-child(3) { border-left-color: var(--navy); }
+  /* ============ HEADER (top band) ============ */
+  .header {
+    background: var(--navy-bg);
+    color: #f9fafb;
+    padding: 26px 32px 18px;
+  }
 
-  /* Header / Brand */
-  .brand {
+  .header-top {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 10px;
   }
 
-  .title {
-    font-size: 19.5pt;
-    color: var(--blue);
+  .header-left {
+    max-width: 78%;
+  }
+
+  /* FULL TITLE in blue, smaller and professional */
+  .title-main {
+    font-family: "Georgia","Times New Roman",serif;
+    font-size: 26px;             /* smaller than original */
     font-weight: 700;
-    line-height: 1.02;
-  }
-
-  .tagline {
-    font-size: 9pt;
-    color: var(--deep-blue);
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: .6px;
-    font-weight: 700;
+    color: var(--blue);
   }
 
-  .heading-band {
-    height: 6px;
-    border-radius: 6px;
-    background: linear-gradient(90deg,var(--blue),var(--navy));
-    margin: 4px 0 8px 0;
+  .issn-tag {
+    font-size: 9pt;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(249,250,251,0.55);
+    background: rgba(15,23,42,0.2);
+    color: #e5e7eb;       /* visible but not loud */
   }
 
-  /* Headings / text */
-  h2 {
-    font-size: 13.5pt;
-    color: var(--navy);
-    margin-top: 4px;
+  .header-quote {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 10.5pt;
+    color: #e5e7eb;
+    max-width: 620px;
+  }
+
+  /* ============ CALL FOR PAPERS band ============ */
+  .call-band {
+    background: var(--navy-mid);
+    color: #f9fafb;
+    padding: 18px 32px 18px;
+  }
+
+  .call-title {
+    font-family: "Georgia","Times New Roman",serif;
+    font-size: 22pt;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
     margin-bottom: 4px;
   }
 
-  h2.underline {
-    padding-bottom: 3px;
-    border-bottom: 3px solid var(--gold);
-    display: inline-block;
+  .call-sub {
+    font-size: 12pt;
+    margin-bottom: 10px;
   }
 
-  h3 {
-    font-size: 11pt;
-    color: var(--blue);
-    margin-top: 6px;
-    margin-bottom: 3px;
+  .call-sub span {
     font-weight: 700;
   }
 
+  .call-pill {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.7);
+    font-size: 10.5pt;
+    background: rgba(15,23,42,0.35);
+  }
+
+  /* ============ MAIN (two columns) ============ */
+  .main {
+    flex: 1;
+    padding: 20px 32px 20px;
+    background: linear-gradient(180deg,#fdf9f0,#fbf7ef);
+  }
+
+  .two-cols {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 26px;
+  }
+
+  h2.section-heading {
+    font-family: "Georgia","Times New Roman",serif;
+    font-size: 13pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .section-heading span {
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
   p {
-    color: #2f3942;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     text-align: justify;
   }
 
   ul {
     margin-left: 14px;
-    margin-bottom: 4px;
-  }
-
-  li {
-    margin-bottom: 3px;
-  }
-
-  /* Benefit grid — compact */
-  .benefit-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
     margin-top: 4px;
   }
 
-  .benefit-row {
-    display: flex;
-    gap: 6px;
-    align-items: flex-start;
-    background: var(--lightest);
-    padding: 6px 8px;
+  li { margin-bottom: 3px; }
+
+  /* Accepted article box */
+  .accepted-box {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: #f3f4f6;
     border-radius: 6px;
-    border: 1px solid #e6eef6;
-  }
-
-  .benefit-row b {
-    width: 115px;
-    color: var(--navy);
-    font-size: 11pt;
-  }
-
-  .benefit-row span {
-    color: var(--muted);
+    border: 1px solid #e5e7eb;
     font-size: 10.5pt;
   }
 
-  /* Highlight / Contact */
-  .highlight {
-    background: linear-gradient(180deg,#ffffff,var(--light-cream));
-    border-radius: 8px;
-    padding: 8px;
-    border: 1px solid #e9e1d7;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.04);
-    margin-top: 6px;
-  }
-
-  .contact-line {
-    font-size: 10.25pt;
+  .accepted-title {
+    font-weight: 700;
     margin-bottom: 4px;
   }
 
-  .contact-line a {
+  .note-line {
+    margin-top: 8px;
+    font-size: 10pt;
+    color: var(--muted);
+  }
+
+  /* Inclusivity section */
+  .inclusivity-heading {
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  /* Right column: author benefits */
+  .benefits-list {
+    margin-top: 4px;
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .benefit-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .benefit-title {
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .benefit-body {
+    font-size: 10.5pt;
+    color: var(--muted);
+  }
+
+  .fee-box {
+    margin-top: 16px;
+    padding: 10px 12px;
+    background: var(--navy-mid);
+    color: #f9fafb;
+    border-radius: 6px;
+  }
+
+  .fee-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #facc15;
+  }
+
+  .fee-line { font-size: 10.5pt; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 10px 32px 14px;
+    background: #f7f3e9;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .contact-block {
+    font-size: 10.5pt;
+  }
+
+  .contact-block b {
+    color: var(--navy);
+  }
+
+  .contact-block a {
     color: var(--blue);
     font-weight: 700;
     text-decoration: none;
   }
 
-  /* CTA and crisp QR */
-  .cta {
-    margin-top: auto;
+  .qr-wrap {
     display: flex;
-    gap: 12px;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 4px;
   }
 
   .qr-box {
-    background: white;
-    padding: 6px;
+    width: 92px;
+    height: 92px;
+    background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(12,20,30,0.12);
-    border: 1px solid rgba(0,0,0,0.03);
-    width: 120px;
-    height: 120px;
-    flex: 0 0 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 4px;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.25);
   }
 
   .qr-box img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    image-rendering: crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-    border-radius: 6px;
   }
 
-  .cta-btn {
-    display: inline-block;
-    padding: 8px 14px;
-    font-weight: 700;
-    border-radius: 8px;
-    background: linear-gradient(90deg,var(--blue),var(--navy));
-    color: #fff;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-    text-decoration: none;
+  .qr-label {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--navy);
   }
 
-  .footer-note {
+  .copyright {
     text-align: center;
-    font-size: 10pt;
-    color: #66737f;
-    margin-top: 4px;
+    font-size: 9pt;
+    color: var(--muted);
+    margin-top: 6px;
   }
 
-  /* small-screen fallback (screen only) */
-  @media screen and (max-width:1000px) {
-    .container {
-      grid-template-columns: 1fr;
-      width: calc(100% - 20px);
-      height: auto;
-      padding: 18px;
-    }
-    .panel {
-      min-height: auto;
-    }
-  }
-
-  /* PRINT STABILITY PATCH */
   @media print {
-    * {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-
-    body {
-      background: white;
-      padding: 0;
-    }
-
-    .container {
-      grid-auto-rows: 1fr !important;
-      align-items: stretch !important;
-      padding: 6mm !important;
+    body { background:#ffffff; padding:0; }
+    .flyer {
       box-shadow: none;
+      width: 210mm;
+      min-height: 297mm;
       margin: 0;
     }
+  }
 
-    .panel {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      overflow: visible !important;
-      page-break-inside: avoid !important;
-      break-inside: avoid !important;
-      padding-bottom: 6mm !important;
-      box-shadow: none;
-      border-left-width: 2px;
-    }
-
-    .footer-note {
-      margin-bottom: 6mm !important;
-    }
-
-    .cta {
-      page-break-inside: avoid;
-    }
+  @media screen and (max-width:900px) {
+    .flyer { width:100%; }
+    .main { padding:16px; }
+    .two-cols { grid-template-columns:1fr; }
+    .footer-row { flex-direction:column; align-items:flex-start; }
   }
 </style>
 </head>
 <body>
+<div class="flyer">
 
-<div class="container" role="document" aria-label="Vivrtih Journal - 3-panel flyer - final">
-  <!-- Panel 1 -->
-  <section class="panel" aria-labelledby="about-heading">
-    <div class="brand">
-      <div class="title">Vivrtih Journal of Food Science and Clinical Nutrition</div>
-      <div class="tagline">International • Open-Access • Peer-Reviewed</div>
-    </div>
-
-    <div class="heading-band" aria-hidden="true"></div>
-
-    <h2 id="about-heading" class="underline">About the Journal</h2>
-    <p><em>Vivrtih Journal of Food Science and Clinical Nutrition</em> is an online-only, independent, researcher-led, international journal. Our mission is to bridge the gap between fundamental research and practical applications by translating scientific discoveries into real-world solutions.</p>
-
-    <h3>Commitment to Quality</h3>
-    <p>We are dedicated to publishing high-quality, peer-reviewed scientific work. The journal operates without any institutional or commercial affiliation, ensuring transparency, editorial independence, and adherence to ethical publishing standards.</p>
-
-    <h3>Inclusivity</h3>
-    <p>While maintaining high academic standards, the journal encourages submissions from students, early-career researchers, and young professionals, supporting inclusivity and the professional growth of emerging scholars.</p>
-
-    <p style="margin-top:6px;">
-      For more information, kindly visit the journal website:
-      <a href="https://vivrtihjournal.com" class="contact-line">www.vivrtihjournal.com</a>
-    </p>
-    <p style="color:var(--muted); font-size:10.25pt;">
-      <strong>ISSN (Online) registration is in process</strong>
-    </p>
-  </section>
-
-  <!-- Panel 2 -->
-  <section class="panel" aria-labelledby="scope-heading">
-    <h2 id="scope-heading" class="underline">Scope &amp; Focus Areas</h2>
-    <p>We welcome submissions across the entire spectrum of food science and nutrition:</p>
-    <ul>
-      <li><strong>Food Science:</strong> Chemistry, Sensory Analysis, Quality Control, Food Engineering, Processing, etc.</li>
-      <li><strong>Clinical Nutrition:</strong> Therapeutic Dietetics, Nutritional Interventions, Personalised Nutrition, Disease Management, etc.</li>
-      <li><strong>Nutrition &amp; Health:</strong> Epidemiology, Public Health Nutrition, Dietary Assessments, etc.</li>
-      <li><strong>Food Technology:</strong> Safety, Preservation, Packaging, Novel Production Systems, etc.</li>
-    </ul>
-
-    <h2 style="margin-top:6px;">Key Benefits</h2>
-    <div class="benefit-grid" role="table" aria-label="Key benefits">
-      <div class="benefit-row"><b>Open Access</b><span>Maximum global visibility. Authors retain copyright.</span></div>
-      <div class="benefit-row"><b>Peer Review</b><span>Rigorous, single blind, and constructive evaluation.</span></div>
-      <div class="benefit-row"><b>Rapid Publication</b><span>Continuous publication model for immediate dissemination.</span></div>
-      <div class="benefit-row"><b>Standards</b><span>Adheres to UGC Suggestive Parameters.</span></div>
-      <div class="benefit-row"><b>Fee Waivers</b><span>20% waiver for students and PhD researchers in their first year.</span></div>
-      <div class="benefit-row"><b>Editors</b><span>30% waiver.</span></div>
-      <div class="benefit-row"><b>Reviewers</b><span>20% waiver + Reviewer certificate.</span></div>
-    </div>
-  </section>
-
-  <!-- Panel 3 -->
-  <section class="panel" aria-labelledby="call-heading">
-    <h2 id="call-heading" class="underline">Call for Papers</h2>
-    <p>We are pleased to announce the call for papers for our inaugural issue, starting from January 2026. Submissions are now open, and we invite researchers, students, and early-career professionals to contribute high-quality work aligned with our scope.</p>
-    <p>We welcome a broad range of submissions, including original research, replication studies, and rigorously conducted null findings. Every valid investigation, regardless of outcome, provides valuable insights that advance the scientific community.</p>
-
-    <h3>Articles Accepted</h3>
-    <p>Original research, Review articles, Mini reviews, Short Reports, Case studies, Perspectives, Opinion Papers, Commentaries, Letter to editor.</p>
-
-    <div class="highlight">
-      <h3 style="margin-top:0;">Contact</h3>
-      <div class="contact-line"><strong>General:</strong> <a href="mailto:queries@vivrtihjournal.com">queries@vivrtihjournal.com</a></div>
-      <div class="contact-line"><strong>Submission:</strong> <a href="mailto:submission@vivrtihjournal.com">submission@vivrtihjournal.com</a></div>
-    </div>
-
-    <div class="cta" role="region" aria-label="Call to action">
-      <div class="qr-box" title="Scan to visit vivrtihjournal.com">
-        <img
-          alt="QR code to visit vivrtihjournal.com"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=1200x1200&format=png&margin=0&data=https://vivrtihjournal.com"
-        />
-      </div>
-
-      <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
-        <a class="cta-btn" href="https://vivrtihjournal.com" target="_blank" rel="noopener">
-          Visit www.vivrtihjournal.com
-        </a>
-        <div style="font-size:10.25pt; color:var(--muted);">
-          © 2025 Vivrtih Journal of Food Science and Clinical Nutrition
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div class="header-left">
+        <!-- FULL TITLE, BLUE, SMALLER -->
+        <div class="title-main">
+          Vivrtih Journal of Food Science and Clinical Nutrition
         </div>
       </div>
+      <div class="issn-tag">
+        ISSN (Online) registration in process
+      </div>
     </div>
+    <p class="header-quote">
+      “Bridging the gap between fundamental research and practical applications
+      by translating scientific discoveries into real-world solutions.”
+    </p>
+  </header>
 
-    <div class="footer-note">All rights reserved.</div>
+  <!-- CALL FOR PAPERS BAND -->
+  <section class="call-band">
+    <div class="call-title">CALL FOR PAPERS</div>
+    <div class="call-sub">Inaugural Issue: <span>January 2026</span></div>
+    <div class="call-pill">
+      Submissions now open for researchers, students, and early-career professionals
+    </div>
   </section>
 
-</div>
+  <!-- MAIN CONTENT (two columns) -->
+  <main class="main">
+    <div class="two-cols">
+      <!-- LEFT COLUMN -->
+      <section>
+        <h2 class="section-heading"><span>Scope &amp; Focus Areas</span></h2>
+        <p>We welcome submissions across the entire spectrum of food science and nutrition:</p>
+        <ul>
+          <li><strong>Food Science:</strong> Chemistry, Sensory Analysis, Quality Control, Food Engineering, Processing, etc.</li>
+          <li><strong>Clinical Nutrition:</strong> Therapeutic Dietetics, Nutritional Interventions, Personalised Nutrition, Disease Management, etc.</li>
+          <li><strong>Nutrition &amp; Health:</strong> Epidemiology, Public Health Nutrition, Dietary Assessments, etc.</li>
+          <li><strong>Food Technology:</strong> Safety, Preservation, Packaging, Novel Production Systems, etc.</li>
+        </ul>
 
+        <div class="accepted-box">
+          <div class="accepted-title">Accepted Article Types</div>
+          <p>
+            Original research, Review articles, Mini reviews, Short Reports, Case studies,
+            Perspectives, Opinion Papers, Commentaries, and Letters to the Editor.
+          </p>
+        </div>
+
+        <!-- Inclusivity section -->
+        <p class="inclusivity-heading">Inclusivity</p>
+        <p>
+          While maintaining high academic standards, the journal encourages submissions
+          from students, early-career researchers, and young professionals, supporting
+          inclusivity and the professional growth of emerging scholars.
+        </p>
+
+        <p class="note-line">
+          We welcome replication studies and rigorously conducted null findings.
+          Every valid investigation, regardless of outcome, contributes valuable
+          insights to the scientific community.
+        </p>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <section>
+        <h2 class="section-heading"><span>Author Benefits</span></h2>
+
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">OA</div>
+            <div>
+              <div class="benefit-title">Open Access</div>
+              <div class="benefit-body">
+                Maximum global visibility. Authors retain copyright.
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">PR</div>
+            <div>
+              <div class="benefit-title">Rigorous Peer Review</div>
+              <div class="benefit-body">
+                Single-blind, constructive evaluation.
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">CP</div>
+            <div>
+              <div class="benefit-title">Continuous Publication</div>
+              <div class="benefit-body">
+                Continuous publication model for immediate dissemination.
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">UG</div>
+            <div>
+              <div class="benefit-title">Standards</div>
+              <div class="benefit-body">
+                Adheres to UGC suggestive parameters.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fee-box">
+          <div class="fee-title">Fee Waivers Available</div>
+          <p class="fee-line">20% waiver for students and PhD researchers in their first year.</p>
+          <p class="fee-line">20% waiver + reviewer certificate for reviewers.</p>
+          <p class="fee-line">30% waiver for editors.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="contact-block">
+        <div><b>Submit Your Paper</b></div>
+        <div><b>Submission:</b>
+          <a href="mailto:submission@vivrtihjournal.com">submission@vivrtihjournal.com</a>
+        </div>
+        <div><b>Website:</b>
+          <a href="https://www.vivrtihjournal.com" target="_blank" rel="noopener">
+            www.vivrtihjournal.com
+          </a>
+        </div>
+      </div>
+      <div class="qr-wrap">
+        <div class="qr-box">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.vivrtihjournal.com"
+            alt="QR code linking to vivrtihjournal.com"
+          />
+        </div>
+        <div class="qr-label">Scan to visit</div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Vivrtih Journal of Food Science and Clinical Nutrition. All rights reserved.
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>
