@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vivrtih Journal Flyer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background: #e5e7eb;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 22mm 18mm;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      color: #111827;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px; /* professional, not too big */
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #0a2647; /* blue title */
+    }
+
+    h2,
+    h3 {
+      color: #0a2647;
+      margin: 12px 0 6px;
+      font-size: 17px;
+    }
+
+    h4 {
+      margin: 8px 0 4px;
+      font-size: 14px;
+      color: #0a2647;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #374151;
+      margin-top: 4px;
+    }
+
+    .section {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .two-col {
+      display: flex;
+      gap: 18px;
+      margin-top: 12px;
+    }
+
+    .col {
+      flex: 1;
+    }
+
+    ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .small {
+      font-size: 11px;
+      color: #4b5563;
+    }
+
+    .footer {
+      border-top: 1px solid #d1d5db;
+      margin-top: 18px;
+      padding-top: 10px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-left {
+      flex: 2;
+    }
+
+    .footer-right {
+      flex: 1;
+      text-align: right;
+    }
+
+    .qr-box {
+      display: inline-block;
+      border: 1px solid #d1d5db;
+      padding: 4px;
+      background: #ffffff;
+    }
+
+    .qr-box img {
+      display: block;
+      width: 90px;
+      height: 90px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        min-height: auto;
+        padding: 18mm 16mm;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <h1>Vivrtih Journal of Food Science and Clinical Nutrition</h1>
+      <div class="subtitle">
+        INTERNATIONAL • OPEN-ACCESS • PEER-REVIEWED
+      </div>
+    </header>
+
+    <!-- ABOUT / QUALITY / INCLUSIVITY -->
+    <section class="section">
+      <h2>About the Journal</h2>
+      <p>
+        Vivrtih Journal of Food Science and Clinical Nutrition is an
+        online-only, independent, researcher-led, international journal. Our
+        mission is to bridge the gap between fundamental research and
+        practical applications by translating scientific discoveries into
+        real-world solutions.
+      </p>
+
+      <h3>Commitment to Quality</h3>
+      <p>
+        We are dedicated to publishing high-quality, peer-reviewed scientific
+        work. The journal operates without any institutional or commercial
+        affiliation, ensuring transparency, editorial independence, and
+        adherence to ethical publishing standards.
+      </p>
+
+      <h3>Inclusivity</h3>
+      <p>
+        While maintaining high academic standards, the journal encourages
+        submissions from students, early-career researchers, and young
+        professionals, supporting inclusivity and the professional growth of
+        emerging scholars.
+      </p>
+    </section>
+
+    <!-- CALL FOR PAPERS + KEY BENEFITS (2 columns) -->
+    <section class="section">
+      <div class="two-col">
+        <div class="col">
+          <h2>Call for Papers</h2>
+          <p>
+            We are pleased to announce the call for papers for our inaugural
+            issue, starting from January 2026. Submissions are now open, and we
+            invite researchers, students, early-career professionals, and
+            practitioners worldwide to contribute high-quality work aligned
+            with our scope. Submissions are open for all.
+          </p>
+          <p>
+            We welcome a broad range of submissions, including original
+            research, replication studies, and rigorously conducted null
+            findings. Every valid investigation, regardless of outcome,
+            provides valuable insights that advance the scientific community.
+          </p>
+
+          <h3>Articles Accepted</h3>
+          <p>
+            Original research, Review articles, Mini reviews, Short Reports,
+            Case studies, Perspectives, Opinion Papers, Commentaries, Letter to
+            editor.
+          </p>
+        </div>
+
+        <div class="col">
+          <h2>Key Benefits</h2>
+
+          <h4>Open Access</h4>
+          <p>Maximum global visibility. Authors retain copyright.</p>
+
+          <h4>Peer Review</h4>
+          <p>Rigorous, single blind, and constructive evaluation.</p>
+
+          <h4>Rapid Publication</h4>
+          <p>Continuous publication model for immediate dissemination.</p>
+
+          <h4>Standards</h4>
+          <p>Adheres to UGC Suggestive Parameters.</p>
+
+          <h4>Fee Waivers</h4>
+          <p>
+            20% waiver for students and PhD researchers in their first year.<br />
+            Editors: 30% waiver.<br />
+            Reviewers: 20% waiver + reviewer certificate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE & FOCUS AREAS -->
+    <section class="section">
+      <h2>Scope &amp; Focus Areas</h2>
+      <p>
+        We welcome submissions across the entire spectrum of food science and
+        nutrition:
+      </p>
+      <ul>
+        <li>
+          <strong>Food Science:</strong> Chemistry, Sensory Analysis, Quality
+          Control, Food Engineering, Processing, etc.
+        </li>
+        <li>
+          <strong>Clinical Nutrition:</strong> Therapeutic Dietetics,
+          Nutritional Interventions, Personalised Nutrition, Disease
+          Management, etc.
+        </li>
+        <li>
+          <strong>Nutrition &amp; Health:</strong> Epidemiology, Public Health
+          Nutrition, Dietary Assessments, etc.
+        </li>
+        <li>
+          <strong>Food Technology:</strong> Safety, Preservation, Packaging,
+          Novel Production Systems, etc.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONTACT + FOOTER -->
+    <section class="section">
+      <h2>Contact</h2>
+      <p>
+        <strong>General:</strong> queries@vivrtihjournal.com<br />
+        <strong>Submission:</strong> submission@vivrtihjournal.com
+      </p>
+      <p>
+        For more information, kindly visit the journal website:
+        <strong>www.vivrtihjournal.com</strong>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <div>© 2025 Vivrtih Journal of Food Science and Clinical Nutrition. All rights reserved.</div>
+        <div>ISSN (Online) registration is in process.</div>
+      </div>
+      <div class="footer-right">
+        <div class="qr-box">
+          <!-- QR code for website -->
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.vivrtihjournal.com"
+            alt="QR code linking to vivrtihjournal.com"
+          />
+        </div>
+        <div class="small">Scan to visit the journal website</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
